@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-4a580162f5094fe0e6b2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "InLanD_Compiler",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "InLanD_Compiler::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-InLanD_Compiler-Debug-e4c77fcb369c2ab8643f.json",
+					"name" : "InLanD_Compiler",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "InLanD_Compiler_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-InLanD_Compiler_autogen-Debug-de7999b44defe1243bf0.json",
+					"name" : "InLanD_Compiler_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "InLanD_Compiler_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-InLanD_Compiler_autogen_timestamp_deps-Debug-c6b6f07cc0e2e9bde184.json",
+					"name" : "InLanD_Compiler_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/gibra/Documents/FinalProject/InLanD_Compiler/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug",
+		"source" : "C:/Users/gibra/Documents/FinalProject/InLanD_Compiler"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

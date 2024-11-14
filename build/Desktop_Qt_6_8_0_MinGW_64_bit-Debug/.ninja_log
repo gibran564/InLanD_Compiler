@@ -1,0 +1,20 @@
+# ninja log v6
+1036	2352	7532508305046401	CMakeFiles/InLanD_Compiler.dir/analyzer.cpp.obj	5580825515235df1
+1019	3775	7532508304872342	CMakeFiles/InLanD_Compiler.dir/InLanD_Compiler_autogen/mocs_compilation.cpp.obj	d7fffbe7d6009a5b
+29	140	7532510016295663	C:/Users/gibra/Documents/FinalProject/InLanD_Compiler/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	eedc5cce5b85498f
+127	1009	7532508303781851	InLanD_Compiler_autogen/timestamp	5bad4a0c879b163a
+127	1009	7532508303781851	InLanD_Compiler_autogen/mocs_compilation.cpp	5bad4a0c879b163a
+127	1009	7532508303781851	C:/Users/gibra/Documents/FinalProject/InLanD_Compiler/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/InLanD_Compiler_autogen/timestamp	5bad4a0c879b163a
+127	1009	7532508303781851	C:/Users/gibra/Documents/FinalProject/InLanD_Compiler/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/InLanD_Compiler_autogen/mocs_compilation.cpp	5bad4a0c879b163a
+1024	3891	7532508304923339	CMakeFiles/InLanD_Compiler.dir/main.cpp.obj	424d12ff35489362
+1030	5341	7532508304983180	CMakeFiles/InLanD_Compiler.dir/mainwindow.cpp.obj	c364eb95570f0816
+5342	5911	7532508348107039	InLanD_Compiler.exe	641efa3a188498c7
+140	1019	7532510024639653	build.ninja	c5225765544951bf
+31	142	7532510025932711	C:/Users/gibra/Documents/FinalProject/InLanD_Compiler/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	eedc5cce5b85498f
+154	346	7532510027162069	InLanD_Compiler_autogen/timestamp	5bad4a0c879b163a
+154	346	7532510027162069	InLanD_Compiler_autogen/mocs_compilation.cpp	5bad4a0c879b163a
+154	346	7532510027162069	C:/Users/gibra/Documents/FinalProject/InLanD_Compiler/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/InLanD_Compiler_autogen/timestamp	5bad4a0c879b163a
+154	346	7532510027162069	C:/Users/gibra/Documents/FinalProject/InLanD_Compiler/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/InLanD_Compiler_autogen/mocs_compilation.cpp	5bad4a0c879b163a
+350	1463	7532510029124854	CMakeFiles/InLanD_Compiler.dir/analyzer.cpp.obj	5580825515235df1
+347	5896	7532510029093693	CMakeFiles/InLanD_Compiler.dir/mainwindow.cpp.obj	c364eb95570f0816
+5896	6323	7532510084583710	InLanD_Compiler.exe	641efa3a188498c7
