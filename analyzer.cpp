@@ -4,25 +4,28 @@
 #include <algorithm>
 #include <iostream>
 
-                      Analyzer::Analyzer() {
-    int tempM[16][33] = {
+Analyzer::Analyzer() {
+    int tempM[18][33] = {
         // Estados:    m    M    n    _    +    -    *    /    %    =    (    )    [    ]    {    }    :    ,    ;    &    |    !    '    "    #    <    >    .    E    e    sp  otro  \0
-        /* 0  */    {  1,   1,   3,   1, 105, 106, 108, 107, 109, 117, 115, 116, 114, 114, 122, 121, 118, 119, 120,  20,  20,  20,  10,  11,  13,  14,  15, 125,   1,   1,   0, 501,   0},
+        /* 0  */    {  1,   1,   2,   1, 105, 106, 108, 107, 109, 117, 115, 116, 114, 114, 122, 121, 118, 119, 120,  20,  20,  20,  10,  11,  13,  14,  15,  16,   1,   1,   0, 501,   0},
         /* 1  */    {  1,   1,   1,   1, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101, 101,   1,   1, 101, 101, 101},
-        /* 2  */    {102, 102,   2, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102},
-        /* 3  */    {102, 102,   3, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102,   4,   6,   6, 102, 102, 102},
-        /* 4  */    {500, 500,   5, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500},
-        /* 5  */    {103, 103,   5, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103},
-        /* 6  */    {501, 501,   7, 501,   7,   7, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501, 501},
-        /* 7  */    {104, 104,   8, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104},
+        /* 2  */    {102, 102,   2, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102, 102,   3,   4,   4, 102, 102, 102},
+        /* 3  */    {504, 504,   5, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504},
+        /* 4  */    {504, 504,   6, 504,   7,   7, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504},
+        /* 5  */    {103, 103,   5, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103, 103,   4,   4, 103, 103, 103},
+        /* 6  */    {104, 104,   6, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104},
+        /* 7  */    {504, 504,   6, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504, 504},
         /* 8  */    {104, 104,   8, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104, 104},
         /* 9  */    {505, 505, 505, 505, 505, 505, 505, 505, 505, 505, 505, 505, 505, 505, 505, 505, 505, 505, 505, 505, 505, 505,  10, 505, 505, 505, 505, 505, 505, 505, 505, 505, 505},
         /* 10 */    {507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 110, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507},
         /* 11 */    { 11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  11,  12,  11,  11,  11,  11,  11,  11,  11,  11,  11},
         /* 12 */    {111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111},
         /* 13 */    { 13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13,  13, 112},
-        /* 14 */    { 14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  15,  14,  14,  14,  14,  14,  14},
-        /* 15 */    {113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113}
+        /* 14 */    { 14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14,  14, 113,  14,  14,  14,  14,  14,  14},
+        /* 15 */    {113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113, 113},
+        /* 16 */    {507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 507, 126, 507, 507, 507, 507, 507},
+        /* 17 */    {126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126}
+
     };
     memcpy(M, tempM, sizeof(tempM));
 }
@@ -31,20 +34,14 @@
 Analyzer::~Analyzer() {}
 
 int Analyzer::charClass(char c) {
-    if (std::islower(c) && c != 'e') {
-        return 0;  // Letras minúsculas (excepto 'e')
-    }
-    if (c == 'e') {
-        return 29; // Letra 'e'
-    }
-    if (std::isupper(c) && c != 'E') {
-        return 1;  // Letras mayúsculas (excepto 'E')
-    }
-    if (c == 'E') {
-        return 28; // Letra 'E'
-    }
     if (std::isdigit(c)) {
         return 2;  // Dígitos
+    }
+    if (std::islower(c)) {
+        return (c == 'e') ? 29 : 0;
+    }
+    if (std::isupper(c)) {
+        return (c == 'E') ? 28 : 1;
     }
 
     switch (c) {
@@ -72,14 +69,12 @@ int Analyzer::charClass(char c) {
     case '#': return 24;  // Numeral
     case '<': return 25;  // Menor que
     case '>': return 26;  // Mayor que
-    case '.': return 27;  // Punto
-    case ' ': case '\t': case '\r': return 30; // Espacios en blanco
-    case '\n': return 32; // Tratamos el salto de línea como fin de línea para comentarios
-    case '\0': return 32; // Fin de línea
-    default: return 31;   // Otros caracteres
+    case '.': return 27;  // Punto decimal
+    case ' ': case '\t': case '\r': return 30;
+    case '\n': case '\0': return 32;
+    default: return 31;
     }
 }
-
 
 int Analyzer::checkReservedWord(const std::string& lexema) {
     static const std::unordered_set<std::string> palabrasReservadas = {
@@ -91,8 +86,6 @@ int Analyzer::checkReservedWord(const std::string& lexema) {
     };
 
     std::string lexemaMinuscula = lexema;
-    lexemaMinuscula.erase(0, lexemaMinuscula.find_first_not_of(" \t\n\r"));
-    lexemaMinuscula.erase(lexemaMinuscula.find_last_not_of(" \t\n\r") + 1);
     std::transform(lexemaMinuscula.begin(), lexemaMinuscula.end(),
                    lexemaMinuscula.begin(), ::tolower);
 
@@ -102,12 +95,10 @@ int Analyzer::checkReservedWord(const std::string& lexema) {
 void Analyzer::addToken(int tokenCode) {
     if (lexema.empty()) return;
 
-    // Remover espacios en blanco al inicio y final del lexema
     std::string trimmedLexema = lexema;
     trimmedLexema.erase(0, trimmedLexema.find_first_not_of(" \t\n\r"));
     trimmedLexema.erase(trimmedLexema.find_last_not_of(" \t\n\r") + 1);
 
-    // Si es un identificador potencial, verificar si es palabra reservada
     if (tokenCode == 101) {
         tokenCode = checkReservedWord(trimmedLexema);
     }
@@ -140,16 +131,13 @@ void Analyzer::addToken(int tokenCode) {
     case 123: gramema = "Operador Menor que (<)"; break;
     case 124: gramema = "Operador Mayor que (>)"; break;
     case 125: gramema = "Punto (.)"; break;
+    case 126: gramema = "Rango (..)"; break;
     default: gramema = "Token Desconocido"; break;
     }
 
-    // Solo agregar el token si el lexema no está vacío después del trim
-    if (!trimmedLexema.empty()) {
-        tokens.push_back(Token{trimmedLexema, gramema});
-    }
+    tokens.push_back(Token{lexema, gramema});
     lexema.clear();
 }
-
 
 void Analyzer::logError(int errorCode, const std::string& lexema) {
     std::string message;
@@ -171,82 +159,60 @@ std::vector<Token> Analyzer::analyzeString(const std::string& input) {
     lexema.clear();
     int estadoActual = 0;
 
-    for (size_t i = 0; i < input.length(); ++i) {
-        char c = input[i];
+    for (size_t i = 0; i <= input.length(); i++) {
+        char c = (i < input.length()) ? input[i] : '\0';
         int clase = charClass(c);
 
-        if (clase < 0 || clase >= 33) {
-            logError(501, lexema + c);
-            estadoActual = 0;
-            lexema.clear();
-            continue;
-        }
+        if (estadoActual >= 0 && estadoActual < 18 && clase >= 0 && clase < 33) {
+            int estadoSiguiente = M[estadoActual][clase];
 
-        if (estadoActual < 0 || estadoActual >= 16) {
-            logError(501, lexema + c);
-            estadoActual = 0;
-            lexema.clear();
-            continue;
-        }
-
-        int estadoSiguiente = M[estadoActual][clase];
-
-        if ((c == ',' || c == ';') && !lexema.empty() && estadoActual != 11) {
-            if (estadoActual >= 100 && estadoActual < 500) {
-                addToken(estadoActual);
-            } else if (estadoActual > 0) {
-                addToken(estadoActual == 1 ? 101 : (estadoActual == 2 ? 102 : estadoActual));
+            // Estado de error
+            if (estadoSiguiente >= 500) {
+                logError(estadoSiguiente, lexema + c);
+                estadoActual = 0;
+                lexema.clear();
+                continue;
             }
-            lexema.clear();
-            estadoActual = 0;
 
-            lexema = c;
-            addToken(c == ',' ? 119 : 120);
-            lexema.clear();
-            continue;
-        }
+            // Estado de aceptación
+            if (estadoSiguiente >= 100 && estadoSiguiente < 500) {
+                if (clase != 30 && c != '\0') { // Si no es espacio en blanco ni fin de archivo
+                    lexema += c;
+                }
+                addToken(estadoSiguiente);
+                estadoActual = 0;
+                lexema.clear();
+                continue;
+            }
 
-        if (estadoSiguiente >= 500) {
-            logError(estadoSiguiente, lexema + c);
-            estadoActual = 0;
-            lexema.clear();
-            continue;
-        }
-
-        if (estadoSiguiente >= 100 && estadoSiguiente < 500) {
-            if (estadoSiguiente != 112 && estadoSiguiente != 113) {
+            // Estado normal
+            if (clase != 30) { // Si no es espacio en blanco
                 lexema += c;
             }
-            addToken(estadoSiguiente);
-            estadoActual = 0;
-        }
-        else if (estadoSiguiente >= 0 && estadoSiguiente < 16) {
-            lexema += c;
             estadoActual = estadoSiguiente;
-        }
-        else {
-            logError(501, lexema + c);
-            estadoActual = 0;
-            lexema.clear();
-        }
-    }
 
-    if (!lexema.empty()) {
-        if (estadoActual >= 100 && estadoActual < 500) {
-            addToken(estadoActual);
-        } else if (estadoActual > 0) {
-            // Para identificadores y números al final
-            addToken(estadoActual == 1 ? 101 : (estadoActual == 2 ? 102 : estadoActual));
         } else {
-            logError(501, lexema);
+            // Estado inválido
+            if (!lexema.empty()) {
+                logError(501, lexema);
+                lexema.clear();
+            }
+            estadoActual = 0;
+        }
+
+        // Fin de archivo con lexema pendiente
+        if (c == '\0' && !lexema.empty()) {
+            if (estadoActual >= 100 && estadoActual < 500) {
+                addToken(estadoActual);
+            } else {
+                logError(501, lexema);
+            }
+            lexema.clear();
         }
     }
 
     return tokens;
 }
-
-
-
 
 const std::vector<std::string>& Analyzer::getErrors() const {
     return errors;

@@ -3,7 +3,7 @@
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="windowModality">
-   <enum>Qt::WindowModal</enum>
+   <enum>Qt::WindowModality::WindowModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -68,19 +68,24 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="mainLayout">
-    <!-- Entrada de texto -->
     <item>
      <widget class="QLabel" name="inputLabel">
-      <property name="text">
-       <string>Texto de Entrada:</string>
-      </property>
       <property name="styleSheet">
        <string>color: #88C0D0; font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Texto de Entrada:</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QTextEdit" name="inputTextEdit">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="styleSheet">
        <string>
         background-color: #3B4252;
@@ -89,13 +94,8 @@
         padding: 10px;
        </string>
       </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding"/>
-      </property>
      </widget>
     </item>
-
-    <!-- Botones -->
     <item>
      <layout class="QHBoxLayout" name="buttonLayout">
       <item>
@@ -135,17 +135,17 @@
       </item>
      </layout>
     </item>
-
-    <!-- Sección de Resultados con pestañas -->
     <item>
      <widget class="QTabWidget" name="resultsTab">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="styleSheet">
        <string>color: #D8DEE9; background-color: #3B4252; border-radius: 5px;</string>
       </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding"/>
-      </property>
-      <!-- Pestaña Tokens -->
       <widget class="QWidget" name="tokensTab">
        <attribute name="title">
         <string>Tokens</string>
@@ -153,24 +153,27 @@
        <layout class="QVBoxLayout" name="tokensLayout">
         <item>
          <widget class="QTableWidget" name="resultTable">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="styleSheet">
            <string>background-color: #3B4252; color: #D8DEE9; border-radius: 5px; padding: 5px;</string>
+          </property>
+          <property name="showGrid">
+           <bool>false</bool>
           </property>
           <property name="columnCount">
            <number>2</number>
           </property>
-
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding"/>
-          </property>
-
-
+          <column/>
+          <column/>
          </widget>
         </item>
        </layout>
       </widget>
-
-      <!-- Pestaña Errores -->
       <widget class="QWidget" name="errorsTab">
        <attribute name="title">
         <string>Errores</string>
@@ -178,21 +181,22 @@
        <layout class="QVBoxLayout" name="errorsLayout">
         <item>
          <widget class="QPlainTextEdit" name="errorTextEdit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="styleSheet">
            <string>background-color: #3B4252; color: #D8DEE9; border-radius: 5px; padding: 10px;</string>
           </property>
           <property name="readOnly">
            <bool>true</bool>
           </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding"/>
-          </property>
          </widget>
         </item>
        </layout>
       </widget>
-
-      <!-- Pestaña Sintaxis -->
       <widget class="QWidget" name="syntaxTab">
        <attribute name="title">
         <string>Sintaxis</string>
@@ -200,14 +204,17 @@
        <layout class="QVBoxLayout" name="syntaxLayout">
         <item>
          <widget class="QPlainTextEdit" name="syntaxTextEdit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="styleSheet">
            <string>background-color: #3B4252; color: #D8DEE9; border-radius: 5px; padding: 10px;</string>
           </property>
           <property name="readOnly">
            <bool>true</bool>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding"/>
           </property>
          </widget>
         </item>
@@ -223,7 +230,7 @@
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

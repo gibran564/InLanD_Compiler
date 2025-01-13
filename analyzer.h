@@ -36,7 +36,7 @@ private:
     std::vector<std::string> errors; // Lista de mensajes de error
     std::vector<Token> tokens;       // Lista de tokens
 
-    int M[16][33]; // Matriz de transiciones alineada con `tempM` en Analyzer.cpp
+    int M[18][33]; // Matriz de transiciones alineada con `tempM` en Analyzer.cpp
 
     std::string input;
     size_t idx;
